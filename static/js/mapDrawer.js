@@ -36,25 +36,25 @@ function dibujarMatriz(matriz) {
     // Lógica para asignar una imagen a cada valor de la matriz
     switch(valor){
         case '0':
-            image = "/static/images/ground.png";
+            image = "./static/images/ground.png";
             break;
         case '1':
-            image = "/static/images/wall.png";
+            image = "./static/images/wall.png";
             break;
         case '2':
-            image = "/static/images/fire.png";
+            image = "./static/images/fire.png";
             break;
         case '3':
-            image = "/static/images/bucket1.png";
+            image = "./static/images/bucket1.png";
             break;
         case '4':
-            image = "/static/images/bucket2.png";
+            image = "./static/images/bucket2.png";
             break;
         case '5':
-            image = "/static/images/fireman_start.png";
+            image = "./static/images/fireman_start.png";
             break;
         case '6':
-            image  = "/static/images/hydrant.png";
+            image  = "./static/images/hydrant.png";
             break;
     }
     return image;
@@ -122,63 +122,63 @@ function actualizar_mapa(paso_actual){
 
     switch (celda_anterior) {
         case '5':
-            celda_anterior_img = "/static/images/start.png";
+            celda_anterior_img = "./static/images/start.png";
             break;
         case '6':
-            celda_anterior_img = "/static/images/hydrant.png";
+            celda_anterior_img = "./static/images/hydrant.png";
             break;
         default:
-            celda_anterior_img = "/static/images/ground.png";
+            celda_anterior_img = "./static/images/ground.png";
             break;
     }
 
     switch (direccion_accion[1]) {
         case 'apagar_fuego':
-            celda_nueva_img = "/static/images/fireman_ashes.png";
+            celda_nueva_img = "./static/images/fireman_ashes.png";
             let cubeta1_llena = (window.getComputedStyle(cubeta1).getPropertyValue("background-image")).match(/url\(([^)]+)\)/i);
             if(cubeta2.style.backgroundImage !== ''){
                 let cubeta2_llena = (window.getComputedStyle(cubeta2).getPropertyValue("background-image")).match(/url\(([^)]+)\)/i);
                 if(cubeta1_llena[0].includes('full_bucket') && cubeta2_llena[0].includes('full_bucket')){
-                    cubeta2.style.backgroundImage = 'url(/static/images/empty_bucket.png)';
+                    cubeta2.style.backgroundImage = 'url(./static/images/empty_bucket.png)';
                 } else if (cubeta1_llena[0].includes('full_bucket') && !cubeta2_llena[0].includes('full_bucket')){
-                    cubeta1.style.backgroundImage = 'url(/static/images/empty_bucket.png)';
+                    cubeta1.style.backgroundImage = 'url(./static/images/empty_bucket.png)';
                 }
             } else {
-                cubeta1.style.backgroundImage = 'url(/static/images/empty_bucket.png)';
+                cubeta1.style.backgroundImage = 'url(./static/images/empty_bucket.png)';
             }
             
             break;
         case 'recoger_cubeta_pequena':
-            celda_nueva_img = "/static/images/fireman.png";
+            celda_nueva_img = "./static/images/fireman.png";
             cubeta1.style.display = 'block';
-            cubeta1.style.backgroundImage = 'url(/static/images/empty_bucket.png)';
+            cubeta1.style.backgroundImage = 'url(./static/images/empty_bucket.png)';
             break;
         case 'recoger_cubeta_grande':
-            celda_nueva_img = "/static/images/fireman.png";
+            celda_nueva_img = "./static/images/fireman.png";
             cubeta1.style.display = 'block';
             cubeta2.style.display = 'block';
-            cubeta1.style.backgroundImage = 'url(/static/images/empty_bucket.png)';
-            cubeta2.style.backgroundImage = 'url(/static/images/empty_bucket.png)';
+            cubeta1.style.backgroundImage = 'url(./static/images/empty_bucket.png)';
+            cubeta2.style.backgroundImage = 'url(./static/images/empty_bucket.png)';
             break;
         case 'llenar_cubeta':
-            celda_nueva_img = "/static/images/fireman_fill.png";
+            celda_nueva_img = "./static/images/fireman_fill.png";
             if(window.getComputedStyle(cubeta2).display != 'block'){
-                cubeta1.style.backgroundImage = 'url(/static/images/full_bucket.png)';
+                cubeta1.style.backgroundImage = 'url(./static/images/full_bucket.png)';
             } else if (window.getComputedStyle(cubeta2).display == 'block'){
-                cubeta1.style.backgroundImage = 'url(/static/images/full_bucket.png)';
-                cubeta2.style.backgroundImage = 'url(/static/images/full_bucket.png)';
+                cubeta1.style.backgroundImage = 'url(./static/images/full_bucket.png)';
+                cubeta2.style.backgroundImage = 'url(./static/images/full_bucket.png)';
             }
             break;
 
         case undefined:
             if(celda_nueva == '0'){
-                celda_nueva_img = "/static/images/fireman.png";
+                celda_nueva_img = "./static/images/fireman.png";
             } else if (celda_nueva == '5'){
-                celda_nueva_img = "/static/images/fireman_start.png";
+                celda_nueva_img = "./static/images/fireman_start.png";
             } else if (celda_nueva == '6'){
-                celda_nueva_img = "/static/images/fireman_hydrant.png";
+                celda_nueva_img = "./static/images/fireman_hydrant.png";
             } else {
-                celda_nueva_img = "/static/images/fireman.png";
+                celda_nueva_img = "./static/images/fireman.png";
             }
             break;                
     }
@@ -244,8 +244,8 @@ function mostrarResultado(tiempo, nodosExpandidos, costo, profundidad, hay_soluc
         const cubeta2 = document.getElementById('cubeta2');
         cubeta1.style.display = 'none';
         cubeta2.style.display = 'none';
-        cubeta1.style.backgroundImage = 'url(/static/images/empty_bucket.png)';
-        cubeta2.style.backgroundImage = 'url(/static/images/empty_bucket.png)';
+        cubeta1.style.backgroundImage = 'url(./static/images/empty_bucket.png)';
+        cubeta2.style.backgroundImage = 'url(./static/images/empty_bucket.png)';
         
         mapa_juego.forEach((fila, rowIndex) => {        
             fila.forEach((valor, colIndex) => {
