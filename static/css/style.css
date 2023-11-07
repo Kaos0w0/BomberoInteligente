@@ -1,0 +1,155 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #1d1b1b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.pantalla-carga {
+  text-align: center;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.loader {
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid #3498db;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 2s linear infinite;
+  margin: 0 auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+p {
+  margin-top: 10px;
+  font-size: 20px;
+  color: #333;
+}
+
+.container {
+  text-align: center;
+  background-color: #ffffff;
+  border: 1px solid #dddddd;
+  border-radius: 5px;
+  padding: 20px;
+  width: 80%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+}
+
+#drop-area {
+  border: 2px dashed #9e9c9c;
+  border-radius: 5px;
+  padding: 20px;
+  text-align: center;
+  font-size: 1.2em;
+  cursor: pointer;
+  display: inline-block; 
+}
+
+#drop-area input[type="file"] {
+  display: none;
+}
+
+#logo {
+  max-width: 100%;
+  height: auto;
+}
+
+#juego-container {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+#contenido {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+#matriz-container {
+  flex: 0; 
+  padding: 20px 0px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#cubetas-container {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.cubeta {
+  width: 50px;
+  height: 50px;
+}
+
+.vacia{
+  background-image: url("/static/images/empty_bucket.png");
+}
+
+.llena{
+  background-image: url("/static/images/full_bucket.png");
+}
+
+.fila {
+  display: flex;
+}
+
+.celda {
+  width: 50px;
+  height: 50px;
+  border: none;
+  background-size: cover;
+}
+
+#algoritmos-container {
+  flex: 0 0 300px; 
+  padding: 20px;
+  background-color: #333;
+  color: #fff;
+}
+
+select, button {
+  display: block;
+  margin: 10px 0;
+  padding: 10px;
+  width: 100%;
+}
+
+select {
+  background-color: #444;
+  color: #fff;
+  border: none;
+}
+
+button {
+  background-color: #0074cc;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+
+@media screen and (max-width: 768px) {
+  #matriz-container {
+    flex: 1; 
+  }
+
+  #algoritmos-container {
+    flex: 1;
+  }
+}
